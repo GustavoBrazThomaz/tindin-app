@@ -17,13 +17,25 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatChipsModule} from '@angular/material/chips';
 import { DetailsComponent } from './components/details/details.component';
+import {MatDividerModule} from '@angular/material/divider';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HomeLoggedComponent } from './components/home-logged/home-logged.component';
+import {MatIconModule} from '@angular/material/icon';
+import { AddGameComponent } from './components/add-game/add-game.component';
+import { GameListComponent } from './components/game-list/game-list.component';
+import { GameListAuthComponent } from './components/game-list-auth/game-list-auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    DetailsComponent
+    DetailsComponent,
+    PageNotFoundComponent,
+    HomeLoggedComponent,
+    AddGameComponent,
+    GameListComponent,
+    GameListAuthComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +50,9 @@ import { DetailsComponent } from './components/details/details.component';
     MatSnackBarModule,
     MatToolbarModule,
     MatGridListModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDividerModule,
+    MatIconModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

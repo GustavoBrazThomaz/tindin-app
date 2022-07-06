@@ -1,0 +1,56 @@
+<div class="containerHome">
+    <div id="carouselControl" class="carousel slide carouselControler" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src={{carouselImages[0]}} class="mx-auto d-block imageCarousel">
+        </div>
+        <div class="carousel-item">
+          <img src={{carouselImages[1]}} class="mx-auto d-block imageCarousel">
+        </div>
+        <div class="carousel-item">
+          <img src={{carouselImages[2]}} class="mx-auto d-block imageCarousel">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselControl" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselControl" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    
+    
+    <mat-grid-list cols="4" rowHeight="0.6:1" gutterSize="1rem" class="gridList">
+    <button mat-raised-button class="buttonAdd">Add Game</button>
+      <mat-grid-tile *ngFor="let listGame of listGame">
+        <mat-card class="gamesCard">
+            <button mat-mini-fab class="buttonDelete" color="warn">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-mini-fab class="buttonEdit">
+                <mat-icon>edit</mat-icon>
+            </button>
+          <div *ngIf="listGame.photos.length !== 0">
+            <img class="imageCard" mat-card-image src={{listGame.photos[0].url}} alt="Undefined">
+          </div>
+          <div *ngIf="listGame.photos.length === 0">
+            <img class="imageCard" mat-card-image src="https://cursosresportes.com.br/wp-content/uploads/2021/07/for-website.jpg">
+          </div>
+          <mat-card-content>
+            <p class="cardTitle">{{listGame.title}} </p>
+            <p class="cardPrice" *ngIf="listGame.mediumPrice === 0">Free</p>
+            <p class="cardPrice" *ngIf="listGame.mediumPrice === undefined || null">No Info</p>
+            <p class="cardPrice" *ngIf="listGame.mediumPrice > 0">R$ {{listGame.mediumPrice}},00</p>
+            <mat-chip-list class="chip">
+              <mat-chip class="chipColor" selected>⭐ {{listGame.rating.toFixed(2)}} / 10</mat-chip>
+            </mat-chip-list>
+            <button mat-raised-button class="buttonDetails" routerLink="gameDetails/{{listGame._id}}">See Details</button>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  
+  
+  </div>

@@ -18,6 +18,7 @@ export class DetailsComponent implements OnInit {
   
   id: string|null = ""
   game!: Game
+  rating: string = ''
   ngOnInit(): void {
 
     if(this.route.snapshot.paramMap.get('id') === null){
@@ -32,7 +33,7 @@ export class DetailsComponent implements OnInit {
   getGameById(){
     this.API.getGameId(this.id).subscribe(response =>{
       this.game = response.body.game
-      console.log(typeof this.game)
+      console.log(response.body.game.mediumPrice)
     },error => console.error(error))
   }
 }

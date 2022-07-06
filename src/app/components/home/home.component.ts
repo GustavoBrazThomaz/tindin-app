@@ -1,5 +1,5 @@
-import { listGamesInterface, Photos } from './../../service/listGames';
-import { ApiService } from './../../service/api.service';
+import { Router } from '@angular/router';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,32 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  listGame: listGamesInterface[] = []
-  carouselImages: string[] = []
+constructor(private router: Router){}
 
-  constructor(private APi: ApiService) { }
+logged: boolean = false
+ngOnInit(): void {
+  this.checkLogin()
+}
 
-  ngOnInit(): void {
-    this.getGamesList()
+checkLogin(){
+  const token = window.localStorage.getItem('token')
+  if(token){
+    this.logged = true
+  } else {
+    this.logged = false
   }
-  
-  getGamesList(){
-    this.APi.getGamesList().subscribe(
-      response => {
-        if(response.status === 200){
-          this.listGame = response.body.games
-          this.getCarouselImages()
-        }
-      }, error => console.error(error)
-    )
-  }
+}
 
-  getCarouselImages(){
-    this.listGame.map(response =>{
-      if(response.highlight === true){
-        this.carouselImages.push(response.photos[0].url)
-      }
-    })
-  }
+login(){
+  this.router.navigate(['login'])
+}
 
+logout(){
+  window.localStorage.removeItem('token')
+  window.location.reload()
+}
+
+homeEdit(){
+  this.router.navigate(['home'])
+}
 }

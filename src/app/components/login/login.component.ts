@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ApiService } from './../../service/api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,7 +11,8 @@ export class LoginComponent implements OnInit {
 
   public formulario!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private API: ApiService) { }
+
+  constructor(private formBuilder: FormBuilder, private API: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
@@ -21,8 +23,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     const user = this.formulario.value
-    this.API.authUser(user).subscribe(res => {
-      if(res.status === 200)localStorage.setItem('token', res.body.token)
+    this.API.login(user).subscribe(res => {
+      if(res.status === 200){
+        
+        localStorage.setItem('token', res.body.token)
+        window.location.replace('')
+      }
     }, (error) => this.API.openSnackBar(error.error.message))
   }
 }

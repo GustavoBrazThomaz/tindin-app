@@ -1,13 +1,36 @@
-<mat-toolbar color="primary" class="appbar">
-    <span>My Application</span>
-</mat-toolbar>
 <div class="containerHome">
     <div class="gameInfo">
+
         <div class="gameImageContainer">
             <img class="gameImage" src={{game.photos[0].url}} alt="Game Image Here">
         </div>
-        <div class="gameDescription">
-            <h1>{{game.title}}</h1>
+
+        <div class="gameInfoDetails">
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip>⭐ {{game.rating.toFixed(2)}}</mat-chip>
+                <span class="gameTitle">{{game.title}}</span>
+            </mat-chip-list>
+            <div class="line"></div>
+            <div class="gameDetails">
+                <p>Genres: <span>{{game.genres}}</span></p>
+                <p>Total Votes: <span>{{game.totalVotes}}</span></p>
+                <p>Platforms: <span>{{game.platforms}}</span></p>
+                <p>Tags: <span>{{game.tags}}</span></p>
+                <div class="line"></div>
+                <p>Price 
+                    <span *ngIf="game.mediumPrice === 0">Free</span>
+                    <span *ngIf="game.mediumPrice === undefined">No Info</span>
+                    <span *ngIf="game.mediumPrice > 0">R$ {{game.mediumPrice}},00</span>          
+                </p>
+             <div class="line"></div>   
+            </div>
         </div>
+
     </div>
+
+    <div class="gameDescription">
+        <h2>Description</h2>
+        <mat-card>{{game.description}}</mat-card>
+    </div>
+
 </div>

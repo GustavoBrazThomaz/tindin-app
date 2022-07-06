@@ -28,7 +28,7 @@ export class ApiService {
     })
   }
 
-  public authUser(auth: object): Observable<any>{
+  public login(auth: object): Observable<any>{
     return this.httpClient.post<authInterface>(`${API_PATH}/auth`,auth , {observe: 'response'})
   }
 
