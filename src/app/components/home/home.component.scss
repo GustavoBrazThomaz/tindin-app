@@ -1,0 +1,60 @@
+.containerHome{
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    .appbar{
+        margin-bottom: 40px;
+    }
+
+    .carouselControler{
+        margin: 1rem 0;
+        .carousel-item{
+
+            .imageCarousel{
+                width: 100%;
+                height: 70vh;
+            }
+        }
+    }
+
+    .gridList{
+        margin: 0;
+        .gamesCard {
+            background-color: rgb(34, 34, 34);
+            width: 95%;
+            text-align: center;
+            border-radius: 20px;
+
+            .chip{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .chipColor{
+                    background-color: rgb(44, 44, 44);
+                }
+            }
+            .imageCard{
+                height: 300px;
+                border-radius: 20px;
+              }
+          }
+        .gamesCard:hover{
+            box-shadow: 0 0 11px rgb(158, 158, 158);
+        }
+        .buttonDetails{
+            background-color: rgb(44, 44, 44);
+            margin: 10px 0;
+            width: 80%;
+        }
+
+        .cardTitle{
+            font-size: 1.2rem;
+        }
+
+        .cardPrice{
+            font-size: 1rem;
+        }
+    }
+
+
+}

@@ -1,0 +1,46 @@
+.container {
+
+    width: 100%;
+    height: 100%;
+    background-color: rgb(36, 36, 36);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .cardContainer {
+        width: 100%;
+        max-width: 400px;
+        height: 450px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        background-color: white;
+        color: black;
+
+        .titleCard {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .formContainer {
+            text-align: center;
+
+            .inputCard {
+                width: 80%;
+                margin: 1rem 0;
+                height: 3rem;
+                font-size: 1rem;
+                padding: 0 10px;
+                border: 0;
+            }
+        }
+
+        .buttonCard {
+            width: 300px;
+            background-color: rgb(66, 66, 66);
+            color: white;
+        }
+    }
+}

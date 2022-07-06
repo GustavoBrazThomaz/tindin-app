@@ -1,0 +1,16 @@
+.containerHome{
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    .gameInfo{
+        display: flex;
+        .gameImageContainer{
+            width: 40%;
+            margin-right: 3rem;
+            .gameImage{
+                width: 100%;
+            }
+        }
+    }
+}

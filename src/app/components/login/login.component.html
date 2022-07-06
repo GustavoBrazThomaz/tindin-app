@@ -1,0 +1,21 @@
+<div class="container">
+    <mat-card class="cardContainer">
+        <div class="titleCard">
+            <h2>Sign in</h2>
+            <h3>Insert your Account information</h3>
+        </div>
+        <form class="formContainer" [formGroup]="formulario">
+            <mat-card-content>
+                <input type="email" class="inputCard" placeholder="User or Email" formControlName="email" name="email">
+                <input type="password" class="inputCard" placeholder="Password" formControlName="password" name="password">
+
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button class="buttonCard" (click)="onSubmit()">Login your Account</button>
+            </mat-card-actions>
+            <div class="accountRegister">
+                <h3>No Account? Send email fabio@tindin.com.br</h3>
+            </div>
+        </form>
+    </mat-card>
+</div>
