@@ -1,1 +1,49 @@
-<p>add-game works!</p>
+<h1 mat-dialog-title>Add Game</h1>
+<div mat-dialog-content>
+  <form class="form" [formGroup]="formulario">
+    <mat-form-field class="inputAdd" appearance="fill" color="accent">
+        <mat-label>Title:</mat-label>
+        <input matInput formControlName="title" name="title">
+      </mat-form-field>
+
+      <mat-form-field class="inputAdd" appearance="fill" color="accent">
+        <mat-label>Photos Need to be a url Image:</mat-label>
+        <input matInput formControlName="photos" name="photos">
+      </mat-form-field>
+
+    <ng-multiselect-dropdown
+      formControlName="genres"
+      name="genres"
+      class="inputAdd"
+      [placeholder]="'Genres'"
+      [settings]="dropdownGenresSettings"
+      [data]="dropdownGenresList"
+    >
+    </ng-multiselect-dropdown>
+
+    <ng-multiselect-dropdown
+    formControlName="plataform"
+    name="plataform"
+    class="inputAdd"
+    [placeholder]="'Platforms'"
+    [settings]="dropdownPlataformSettings"
+    [data]="dropdownPlataformList"
+  >
+  </ng-multiselect-dropdown>
+        
+      <mat-form-field class="inputAdd" appearance="fill" color="accent">
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price" name="price" type="number">
+      </mat-form-field>
+
+      <mat-form-field class="inputAdd" appearance="fill" color="accent">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" name="description"></textarea>
+      </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions class="buttons">
+  <button mat-raised-button color="accent" (click)="onSubmit()" >Add</button>
+  <button mat-raised-button color="warn" mat-dialog-close="false">Cancel</button>
+</div>

@@ -39,4 +39,19 @@ export class ApiService {
   public getGameId(id: string|null): Observable<any>{
     return this.httpClient.get(`${API_PATH}/games/${id}`, {observe: 'response'})
   }
+
+  public postGame(obj: object, token: string): Observable<any>{
+    return this.httpClient.post(`${API_PATH}/games`,obj, {
+      headers:({
+        'x-api-key': token
+      })
+    })
+  }
+
+  public deleteGame(id: string, token: string): Observable<any>{
+    return this.httpClient.delete(`${API_PATH}/games/${id}`,
+    {headers:({
+      'x-api-key': token
+    })})
+  }
 }

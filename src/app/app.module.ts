@@ -24,6 +24,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { AddGameComponent } from './components/add-game/add-game.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { GameListAuthComponent } from './components/game-list-auth/game-list-auth.component';
+import { DeleteGameComponent } from './components/delete-game/delete-game.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -35,10 +38,12 @@ import { GameListAuthComponent } from './components/game-list-auth/game-list-aut
     HomeLoggedComponent,
     AddGameComponent,
     GameListComponent,
-    GameListAuthComponent
+    GameListAuthComponent,
+    DeleteGameComponent,
   ],
   imports: [
     BrowserModule,
+    NgMultiSelectDropDownModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -52,7 +57,8 @@ import { GameListAuthComponent } from './components/game-list-auth/game-list-aut
     MatGridListModule,
     MatChipsModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

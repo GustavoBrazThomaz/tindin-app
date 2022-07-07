@@ -23,14 +23,11 @@
     
     
     <mat-grid-list cols="4" rowHeight="0.6:1" gutterSize="1rem" class="gridList">
-    <button mat-raised-button class="buttonAdd">Add Game</button>
+    <button mat-raised-button class="buttonAdd" (click)="addGame()">Add Game</button>
       <mat-grid-tile *ngFor="let listGame of listGame">
         <mat-card class="gamesCard">
-            <button mat-mini-fab class="buttonDelete" color="warn">
+            <button mat-mini-fab class="buttonDelete" color="warn" (click)="deleteGame(listGame._id)">
                 <mat-icon>delete</mat-icon>
-            </button>
-            <button mat-mini-fab class="buttonEdit">
-                <mat-icon>edit</mat-icon>
             </button>
           <div *ngIf="listGame.photos.length !== 0">
             <img class="imageCard" mat-card-image src={{listGame.photos[0].url}} alt="Undefined">

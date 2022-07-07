@@ -33,7 +33,7 @@ export class DetailsComponent implements OnInit {
   getGameById(){
     this.API.getGameId(this.id).subscribe(response =>{
       this.game = response.body.game
-      console.log(response.body.game.mediumPrice)
+      console.log(this.game)
     },error => console.error(error))
   }
 }

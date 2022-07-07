@@ -1,8 +1,12 @@
 <div class="containerHome">
     <div class="gameInfo">
 
-        <div class="gameImageContainer">
+        <div class="gameImageContainer" *ngIf="game.photos.length !== 0">
             <img class="gameImage" src={{game.photos[0].url}} alt="Game Image Here">
+        </div>
+
+        <div class="gameImageContainer" *ngIf="game.photos.length === 0">
+            <img class="gameImage" src="https://cursosresportes.com.br/wp-content/uploads/2021/07/for-website.jpg" alt="Game Image Here">
         </div>
 
         <div class="gameInfoDetails">
@@ -15,7 +19,6 @@
                 <p>Genres: <span>{{game.genres}}</span></p>
                 <p>Total Votes: <span>{{game.totalVotes}}</span></p>
                 <p>Platforms: <span>{{game.platforms}}</span></p>
-                <p>Tags: <span>{{game.tags}}</span></p>
                 <div class="line"></div>
                 <p>Price 
                     <span *ngIf="game.mediumPrice === 0">Free</span>

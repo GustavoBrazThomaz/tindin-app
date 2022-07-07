@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/service/auth.service';
 import { listGamesInterface, Photos } from './../../service/listGames';
 import { ApiService } from './../../service/api.service';
 
@@ -13,7 +12,7 @@ export class GameListComponent implements OnInit {
   listGame: listGamesInterface[] = []
   carouselImages: string[] = []
 
-  constructor(private APi: ApiService, public AUTH: AuthService) { }
+  constructor(private APi: ApiService) { }
 
   ngOnInit(): void {
     this.getGamesList()
